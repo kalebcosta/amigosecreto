@@ -14,6 +14,27 @@
  *= require_self
  */
 
-@import "bulma";
+
 // @import "materialize";
 // @import "material_icons";
+
+$link: #00b0b9;
+$navbar-item-color: #ffad00;
+$navbar-item-img-max-height: 2.5rem;
+// $navbar-background-color: #f0fcfc;
+@import "bulma";
+@import "shared/_navbar";
+
+// ------------------------------------------------
+html, body {
+  height: 100%;
+}
+
+body {
+  background: image-url("/bg.jpg") no-repeat center center fixed / cover;
+  // -webkit-background-size: cover;
+  // -moz-background-size: cover;
+  // -o-background-size: cover;
+  // background-size: cover;
+}
+
