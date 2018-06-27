@@ -6,8 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'devise'
-gem 'materialize-sass'
-gem 'material_icons'
+gem "font-awesome-rails"
 gem 'redis'
 gem 'sidekiq'
 gem "bulma-rails", "~> 0.7.1"

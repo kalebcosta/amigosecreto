@@ -1,0 +1,14 @@
+.fix-footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    // overflow:hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.3rem 0rem;
+}
+
+.icon {
+  color: #ffad00;
+}

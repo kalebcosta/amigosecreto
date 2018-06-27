@@ -4,22 +4,31 @@
       <img src="/assets/brand.png">
     </a>
 
-    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <a role="button" id="navbar-burger-id" class="navbar-burger" data-target="navMenu">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </a>
   </div>
   
-
-  <div class="navbar-end is-hidden-touch has-text-weight-bold">
-    <a class="navbar-item" href="#">
-      Entrar
-    </a>
-
-    <a class="navbar-item" href="#">
-      Criar Conta
-    </a>
+  <div id="navbar-menu-id" class="navbar-menu">
+    <div class="navbar-end has-text-weight-bold">
+      <% if current_user %>
+        <a class="navbar-item has-text-centered" href="/campaigns">
+          Campanhas
+        </a>
+        <a class="navbar-item has-text-centered" href="/users/edit">
+          Perfil
+        </a>
+      <% else %>
+        <a class="navbar-item has-text-centered" href="/users/sign_up">
+          Criar Conta
+        </a>
+        <a class="navbar-item has-text-centered" href="/users/sign_in">
+          Entrar
+        </a>
+      <% end %>
+    </div>
   </div>
   
 </nav>
