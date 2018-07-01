@@ -10,7 +10,6 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require font-awesome
  *= require_tree .
  *= require_self
  */
@@ -21,24 +20,41 @@
 $link: #00b0b9;
 $navbar-item-color: #ffad00;
 $navbar-item-img-max-height: 2.5rem;
+$primary: #00b0b9;
+$warning: #fad076;
+$success: #237c00;
 
 @import "bulma";
+@import "font-awesome-sprockets";
 @import "font-awesome";
 @import "shared/_navbar";
 @import "shared/_footer";
+@import "home";
+@import "index";
+@import "show";
+@import "bulma-toast.min";
 
 // ------------------------------------------------
 html, body {
-  height: 100%;
   margin: 0;
-  overflow: hidden;
+  padding: 0;
 }
 
 body {
-  background: image_url('bg.jpg') no-repeat center center fixed / cover;
+  background: image_url('bg.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  
+}
+
+.site-content {
+  flex: 1;
+}

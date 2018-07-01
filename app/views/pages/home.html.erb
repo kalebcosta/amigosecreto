@@ -1,2 +1,33 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="columns home-col">
+  <div class="column">
+    <div class="c1 box">
+
+      <p class="title is-3">Entre.</p>
+      <p class="subtitle is-5">Entre com sua conta para criar e gerenciar quantos eventos de Amigo Secreto você quiser ao mesmo tempo! </p>
+
+    </div>
+  </div>
+  <div class="column">
+    <div class="c2 box">
+      <p class="title is-3">Crie.</p>
+      <p class="subtitle is-5">Crie sua campanha, coloque as informações necessárias e convide seus amigos <b>apenas</b> inserindo o e-mail deles! Então eles receberão um e-mail com o nome do amigo sorteado, e você ainda pode ver quem viu o e-mail do seu evento e quem ainda não viu!</p>
+    </div>
+  </div>
+  <div class="column">
+    <div class="c3 box">
+      <p class="title is-3">Divirta-se!</p>
+      <p class="subtitle is-5">Pronto! Seus amigos nem precisam ter conta no site para brincar. A partir da leitura do e-mail, eles saberão a data, horário e localização do evento de Amigo Secreto. Então basta eles comprarem o presente, e comparecerem ao evento! Sem gastar papel, sem sortear o próprio nome, sem tirar o nome de quem também te tirou... Rápido e fácil não? <b>Crie já sua conta! :)</b></p>
+    </div>
+  </div>
+</div>
+
+<div class="is-flex mt2 has-text-centered homebtn">
+  <%= form_tag("/users/sign_in", method: "get") do %>
+    <%= submit_tag("ENTRAR", class: "button is-primary is-inverted is-outlined is-large has-text-weight-semibold btnicon") %>
+  <% end %>
+
+  <%= form_tag("/users/sign_up", method: "get") do %>
+    <%= submit_tag("CRIE SUA CONTA", class: "button is-primary is-inverted is-outlined is-large has-text-weight-semibold") %>
+  <% end %>
+
+</div>

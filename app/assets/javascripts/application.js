@@ -16,7 +16,7 @@
 //= require_tree .
 
 
-$(document).ready(function () {
+$(document).on('turbolinks:load', function () {
 
   // Close mobile & tablet menu on item click
   $('.navbar-item').each(function (e) {

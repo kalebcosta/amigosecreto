@@ -1,0 +1,31 @@
+.columns {
+  margin: 0;
+  padding-top: 0;
+  
+}
+
+.column {
+  padding-top: 1rem; 
+  // margin-top: 1rem;
+}
+
+.columns:first-child {
+  margin-top: 1rem;
+}
+
+.columns:last-child {
+  margin-bottom: 0;
+}
+
+.btn {
+  justify-content: flex-end;
+  align-items: baseline;
+}
+
+.btncampanha{
+  margin-top: 1rem;
+}
+
+.ml{
+  margin-left: 0.5rem;
+}

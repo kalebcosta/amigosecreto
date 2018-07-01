@@ -1,0 +1,28 @@
+<div class="container mt">
+  <% @campaigns.each do |c| %>
+    <div class="columns">
+      <div class="column box is-6 is-offset-3 is-paddingless">
+          <div class="columns is-marginless">
+            <div class="column is-10">
+              <div class="field">
+                <p class="title is-5"><%= truncate(c.title, length: 30, omission: '...') %><span class="is-pulled-right is-size-7"><%= (c.event_date)? c.event_date.strftime("%d/%m/%y") : '' %></span></p>
+                <p class="subtitle has-text-grey-light is-7 data"><%= truncate(c.description, length: 70, omission: '...') %></p>
+                <p class="subtitle is-6 "><%= icon('fas', 'eye') %><span class="ml">Vistos <%= open_number(c) %><span><span class="tag is-pulled-right <%= (c.status == "pending")? 'is-warning' : 'is-success' %>"><%= (c.status == "pending")? 'Pendente' : 'Sorteado' %></span> </p> 
+              </div>
+            </div>
+            <div class="column is-flex btn">
+              <a class="button is-primary is-outlined is-small" href=<%= "/campaigns/#{c.id}"%>>Editar</a>
+            </div>
+          </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="is-table has-text-centered btncampanha control">  
+  <%= form_tag("/campaigns", method: "post") do %>
+    <button class="button is-warning is-rounded is-large" type="submit">+</button>
+  <% end %>
+</div>
+
+

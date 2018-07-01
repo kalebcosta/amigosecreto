@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AmigoSecreto</title>
+    <title>Amigo Secreto</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag 'favicon.ico' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
-  <body>
+  <body class="site">
 
     <header>
       <%= render "shared/navbar" %>
     </header>
 
-    <main>
+    <main class="site-content">
       <div class="container">
         <%= yield %>
       </div>

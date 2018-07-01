@@ -1,54 +1,52 @@
-<div class="container">
+<div class="container box mt2">
+  <span class="title mb has-text-primary">Editar Usuário</span>
 
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+    <div class="field mt">
+      <%= f.label :name %>
+      <%= f.text_field :name, autofocus: true, class: "input is-rounded is-primary" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, class: "input is-rounded is-primary" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <div class="field">
+      <%= f.label :password %> <i>(deixe em branco se não quiser alterar)</i>
+      <%= f.password_field :password, autocomplete: "off", class: "input is-rounded is-primary" %>
+      <% if @minimum_password_length %>
+        
+        <p class="help"><%= @minimum_password_length %> caracteres mínimos</p>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: "input is-rounded is-primary" %>
+    </div>
+    <hr>
+    <div class="field">
+      <%= f.label :current_password %> <i>(Precisamos da sua senha para atualizar os dados)</i>
+      <%= f.password_field :current_password, autocomplete: "off", class: "input is-rounded is-danger" %>
+      <p class="help is-danger">Campo necessário</p>
+    </div>
+
+    <div class="actions has-text-centered">
+      <button class="button is-primary is-rounded" type="submit" name="action">Atualizar</button>
+    </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+  <hr>
+  <div class="botoes is-flex">
+    <%= link_to "Voltar", root_path, class: "button is-dark is-rounded btnicon" %>
+    <%= button_to "Cancelar Conta", registration_path(resource_name), data: { confirm: "Vocẽ tem certeza?" }, method: :delete,  class: 'button is-danger is-rounded' %>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <button class="btn waves-effect waves-light" type="submit" name="action">Update
-      <i class="material-icons right">send</i>
-    </button>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete,  class: 'btn lighten-2 red waves-light' %></p>
-
-<%= link_to "Back", :back %>
 
 </div>

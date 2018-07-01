@@ -1,0 +1,170 @@
+<div class="container box mt2 has-text-centered">
+  <span class="is-size-4 label has-text-primary">DADOS DA CAMPANHA</span>
+
+  <%= form_for @campaign, url: {action: "update"}, html: {class: "col s12 update_campaign"} do |f| %>
+    <div class="field is-horizontal">
+      <div class="field-label is-normal">
+        <label class="label has-text-primary">Nome / Data / Hora</label>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <p class="control is-expanded has-icons-left">
+            <%= f.text_field :title, class: "input is-rounded is-primary" %>
+            <span class="icon is-small is-left">
+              <i class="fas fa-gift"></i>
+            </span>
+          </p>
+        </div>
+
+        <div class="field">
+          <p class="control is-expanded has-icons-left">
+            <%= f.date_field :event_date, class: 'datepicker input is-rounded is-primary' %>
+            <span class="icon is-small is-left">
+              <i class="fas fa-calendar-alt"></i>
+            </span>
+          </p>
+        </div>
+
+        <div class="field">
+          <p class="control is-expanded has-icons-left">
+            <%= f.text_field :event_hour, class: "input is-rounded is-primary", placeholder: "Hora" %>
+            <span class="icon is-small is-left">
+              <i class="fas fa-clock"></i>
+            </span>
+          </p>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="field is-horizontal">
+      <div class="field-label is-normal"><label class="label has-text-primary">Descrição / Local</label></div>
+      <div class="field-body">
+        <div class="field">
+          <p class="control is-expanded has-icons-left">
+            <%= f.text_field :description, 'data-length': "150", class: "input is-rounded is-primary", placeholder: "Descrição" %>
+
+            <span class="icon is-small is-left">
+              <i class="fas fa-info-circle"></i>
+            </span>
+          </p>
+        </div> 
+
+        <div class="field">
+          <p class="control is-expanded has-icons-left">
+            <%= f.text_field :locale, class: "input is-rounded is-primary", placeholder: "Local" %>
+            <span class="icon is-small is-left">
+              <i class="fas fa-map-marker-alt"></i>
+            </span>
+          </p>
+        </div>       
+      </div>
+    </div>
+  <% end %>
+  <hr>
+  <span class="is-size-4 label has-text-warning">MEMBROS</span>
+
+  <div class="member_list">
+    <% @campaign.members.each do |m| %>
+      <div class="member" id="member_<%= m.id %>">
+        <div class="field is-horizontal mt">
+          <div class="field-label is-normal"><label class="label has-text-warning ">Nome / E-mail</label></div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control is-expanded has-icons-left">
+                <input id="name" class="validate input is-rounded is-warning" type="text" value="<%= m.name %>">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-user"></i>
+                </span>
+              </p>
+            </div> 
+
+            <div class="field">
+              <p class="control is-expanded has-icons-left">
+                <input class="input is-rounded is-warning" type="email" value="<%= m.email %>">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+              </p>
+            </div> 
+            <div class="icons is-flex">
+              <span class="icon is-normal">
+                <i class="fas fa-eye <%= (m.open)? 'opened' : '' %>"></i>
+              </span>  
+              
+              <a href="#" class="remove_member" id="<%= m.id %>">
+                <span class="icon is-normal has-text-danger">
+                  <i class="fas fa-trash"></i>
+                </span> 
+              </a>
+            </div>   
+          </div>
+        </div>      
+      </div>
+    <% end %>
+  </div>
+
+  <%= form_for(Member.new) do |f| %>
+    <div class="member">
+      <div class="field is-horizontal mt">
+        <div class="field-label is-normal"><label class="label has-text-warning ">Nome / E-mail</label></div>
+        <div class="field-body">
+          <div class="field">
+            <%= f.hidden_field :campaign_id, value: @campaign.id %>
+
+            <p class="control is-expanded has-icons-left">
+              <%= f.text_field :name, class: "validate input is-rounded is-warning"%>
+              <span class="icon is-small is-left">
+                <i class="fas fa-user"></i>
+              </span>
+            </p>
+          </div> 
+
+          <div class="field">
+            <p class="control is-expanded has-icons-left">
+              <%= f.email_field :email, class: "validate input is-rounded is-warning" %>
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+            </p>
+          </div>
+          <div class="icons is-flex">
+            <span class="icon is-normal">
+              <i class="fas fa-eye disabled"></i>
+            </span>             
+
+            <span class="icon is-normal">
+              <i class="fas fa-trash disabled"></i>
+            </span> 
+          </div>    
+      </div>
+      </div>      
+    </div>
+  <% end %>
+
+<%# BOTÕES FORMULÁRIO %>
+
+  <div class="botoes is-flex">
+    <%= link_to "Voltar", root_path, class: "button is-dark btnicon" %>
+
+    <%= form_for @campaign, method: 'delete', html: {class: 'remove_campaign is-marginless'} do |f| %>
+      <button type='submit' class="button is-danger btnicon">
+      <span class="icon is-small">
+        <i class="fas fa-times"></i>
+      </span>
+      <span>Remover</span>
+      </button>
+    <% end %> 
+    
+    <%= form_tag(raffle_campaign_path(@campaign), method: 'post', class: 'raffle_campaign is-marginless') do %>
+      <button type='submit' class="button is-success">
+      <span class="icon is-small">
+        <i class="fas fa-check"></i>
+      </span>
+      
+      <span>Sortear e Enviar</span>
+      </button>
+    <% end %>
+  </div>   
+
+</div>

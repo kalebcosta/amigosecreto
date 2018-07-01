@@ -1,14 +1,21 @@
 .fix-footer {
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    // overflow:hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.3rem 0rem;
+  
+  // width: 100%;
+  // bottom: 0;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  padding: 0.3rem 0rem;
 }
 
-.icon {
+.coracao {
   color: #ffad00;
+}
+
+.coracao:hover{
+  color: #00b0b9;
+}
+
+.footer {
+  margin-top: 1rem;
 }
