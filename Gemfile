@@ -11,8 +11,8 @@ gem 'redis'
 gem 'sidekiq'
 gem "bulma-rails", "~> 0.7.1"
 gem "sprockets", "~> 3.7.2"
-gem 'inky-rb', require: 'inky'
-gem 'premailer-rails'
+# gem 'inky-rb', require: 'inky'
+# gem 'premailer-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
