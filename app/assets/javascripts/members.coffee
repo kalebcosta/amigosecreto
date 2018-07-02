@@ -64,7 +64,7 @@ insert_member = (id, name, email) ->
                   '<i class="fas fa-eye"></i>'+
                 '</span>'+   
                 '<a href="#" class="remove_member" id="' + id + '">'+
-                  '<span class="icon is-normal">'+
+                  '<span class="icon is-normal has-text-danger">'+
                     '<i class="fas fa-trash"></i>'+
                   '</span>'+
                 '</a>'+
